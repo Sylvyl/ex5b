@@ -34,24 +34,36 @@
 	
 	<script>
 	    $(document).ready(function(){
+
 			$("button").click(function(){
-			   var t = $('#temp').val();//celsius
-			   var u = $('#unit').val();
-			   
-			   if(isNaN(t)){
-					msg = "Please verify whether the temperature value is correct!!!";
-					alert(msg);
-					return;
-			   }
-			   if(!(t >= -100 && t <= 100)){
+
+
+				var t = $('#temp').val();//celsius
+				var u = $('#unit').val();
+				
+				function validate(t){
+
+					//validate num
+					if(isNaN(t)){
+					msg = "Please verify whether the temperature value is correct!!!";	
+					return alert(msg);
+					}
+   					if(!(t >= -100 && t <= 100)){
 					msg = "Tempurature entered (in Celsius) must be between 0 and 100 C'";
-					alert(msg);
-					return;
-			   }
-			   
+					return alert(msg);
+					}
+
+				}	
+
+				var check = validate(t);
+				if(check != null) return check;
+				
+
 			   var t1;
 			   var u1;
-			   
+
+
+			   //conver
 			   if(u == "F"){
 					t1 = t * (9/5) + 32;
 					u1 = "Fahrenheit";
@@ -63,7 +75,7 @@
 					u1 = "Kelvin";
 			   }
 			   
-			   alert("Temperature is "+t1+" in "+u1);
+			   if(t >= -100 && t <= 100) alert("Temperature is "+t1+" in "+u1);
 			});
 		});
 	</script>
