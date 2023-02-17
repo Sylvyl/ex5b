@@ -29,7 +29,8 @@
 		  <br><button type="button" class="btn btn-primary">Convert</button>
 		</form>
 	</div>
-	<div id="result"  style="margin-top:10px;margin-left:10px; font-size: 20px; color:red;" >
+	<div id="result" onclick="textresult" style="margin-top:10px;margin-left:10px; font-size: 20px; color:red;" >
+		alert68
 	</div>
 	
 	<script>
@@ -56,9 +57,6 @@
 
 				}	
 
-				var check = validate(t);
-				if(check != null) return alert(check);
-
 				function temperature_conversion(t){
 				
 					var t1;
@@ -79,13 +77,12 @@
 					if(t >= -100 && t <= 100) return msg = "Temperature is "+t1+" in "+u1;
 					//   if(t >= -100 && t <= 100) return msg = alert("Temperature is "+t1+" in "+u1);
 				}	
-
 				
 
-				var check2 = temperature_conversion(t);
-				if(check2 != null) return alert(check2);
-
-			   
+				var check = validate(t);
+				if(check != null) $("#result").html(check);
+				else check = temperature_conversion(t);
+				$("#result").html(check);
 			});
 		});
 	</script>
