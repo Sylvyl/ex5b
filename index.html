@@ -15,7 +15,7 @@
 		<hr>
 		<form role="form" method="GET">
 		  <div class="form-group">
-			<label for="tem">Current temperature:</label>
+			<label for="tem">Current temperature(Celsius):</label>
 			<input type="text" class="form-control" name="temp" id="temp" value="20">
 		  </div><br>
 		  <div class="form-group">
@@ -68,10 +68,10 @@
 						u1 = "Fahrenheit";
 			   		}else if(u == "K"){
 						t1 =  t + 273.15;
-						u1 = "Réaumur";
+						u1 = "Kelvin";
 			   		}else if(u == "R"){
 						t1 = t * (4/5);
-						u1 = "Kelvin";
+						u1 = "Réaumur";
 			   		}
 					
 					if(t >= -100 && t <= 100) return msg = "Temperature is "+t1+" in "+u1;
